@@ -17,3 +17,5 @@ else
 		-i $KEY
 fi
 
+echo "Exiting ..."
+sleep 5

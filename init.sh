@@ -1,6 +1,6 @@
 
 if [ "$REMOTE" != "true" ]; then
-	ssh \
+	/usr/bin/autossh \
 		-vv \
 		-o StrictHostKeyChecking=no \
 		-Nn $TUNNEL_HOST \
@@ -8,7 +8,7 @@ if [ "$REMOTE" != "true" ]; then
 		-L *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT \
 		-i $KEY
 else
-	ssh \
+	/usr/bin/autossh \
 		-vv \
 		-o StrictHostKeyChecking=no \
 		-Nn $TUNNEL_HOST \

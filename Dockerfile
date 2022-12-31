@@ -1,9 +1,7 @@
-FROM alpine:3.2
-MAINTAINER NOSPAM <nospam@nnn.nnn>
+FROM ubuntu:focal
 
 COPY init.sh /init.sh
 
-RUN apk add --update openssh-client && rm -rf /var/cache/apk/*; \
-    chmod +x /init.sh
+RUN apt update ; apt install -y autossh ; apt clean ; rm -rf rm -rf /var/lib/apt/lists/* /var/cache/apt/* ; chmod +x /init.sh
 
 CMD /init.sh

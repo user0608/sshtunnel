@@ -1,7 +1,7 @@
 
 if [ "$REMOTE" != "true" ]; then
 	/usr/bin/autossh \
-		-vv \
+		-v \
 		-o StrictHostKeyChecking=no \
 		-o UserKnownHostsFile=/dev/null \
 		-Nn $TUNNEL_HOST \
@@ -10,7 +10,7 @@ if [ "$REMOTE" != "true" ]; then
 		-i $KEY
 else
 	/usr/bin/autossh \
-		-vv \
+		-v \
 		-o StrictHostKeyChecking=no \
 		-o UserKnownHostsFile=/dev/null \
 		-Nn $TUNNEL_HOST \

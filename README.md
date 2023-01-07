@@ -9,7 +9,7 @@ version: '2'
 services:
 
   sshtunnel:
-    image: nowsci/sshtunnel
+    image: acaranta/sshtunnel
     container_name: sshtunnel
     ports:
       - "2525:2525"
@@ -33,7 +33,7 @@ version: '2'
 services:
 
   sshtunnel:
-    image: nowsci/sshtunnel
+    image: acaranta/sshtunnel
     container_name: sshtunnel
     volumes:
       - ./sshtunnel/data/:/data/:ro

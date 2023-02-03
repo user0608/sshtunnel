@@ -9,5 +9,7 @@ RUN chmod +x /init.sh
 
 ENV SSHCONFIGFILE=/sshtunnel/ssh_config
 ENV TUNNEL_PORT=22
+ENV AUTOSSH_LOGLEVEL=1
+ENV SSHLOGLEVEL=""
 
 CMD /init.sh

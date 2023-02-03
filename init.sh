@@ -27,8 +27,7 @@ if [ "$REMOTE" != "true" ]; then
 		exit 1
 	fi
 	/usr/bin/autossh \
-		-v \
-		-F $SSHCONFIGFILE \
+		$SSHLOGLEVEL -F $SSHCONFIGFILE \
 		-Nn $TUNNEL_HOST \
 		-p $TUNNEL_PORT \
 		-L *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT \
@@ -51,8 +50,7 @@ else
 		exit 1
 	fi
 	/usr/bin/autossh \
-		-v \
-		-F $SSHCONFIGFILE \
+		$SSHLOGLEVEL -F $SSHCONFIGFILE \
 		-Nn $TUNNEL_HOST \
 		-p $TUNNEL_PORT \
 		-R 0.0.0.0:$REMOTE_PORT:$CONTAINER_HOST:$CONTAINER_PORT \

@@ -69,3 +69,8 @@ services:
       - KEY=/data/keyfile
     restart: always
 ```
+
+## Misc Options
+* You can override and specify your own [ssh config file](https://man7.org/linux/man-pages/man5/ssh_config.5.html) by mounting it into the container and specifying it using the `SSHCONFIGFILE` Env Variable
+* You can change the verbosity level of autossh using the `AUTOSSH_LOGLEVEL`, setting it to a number between 0-7, defaults to 1 in this container
+* You can activate ssh debug level by setting `SSHLOGLEVEL` to "-v", "-vv", etc

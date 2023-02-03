@@ -1,5 +1,9 @@
 # Docker SSH Tunnel
 
+This Container is just an easy way to setup an ssh tunnel and let is be run by docker and/or docker-compose.
+
+This version uses [autossh](https://linux.die.net/man/1/autossh) to ensure that the established tunnel is up and running, restarting it if need be.
+
 # Usage & Example
 ## Forward remote port to local machine
 The below example is the same as :
@@ -29,8 +33,8 @@ services:
       - TUNNEL_HOST=host.example.com
       - TUNNEL_PORT=22
       - REMOTE_HOST=localhost
-      - LOCAL_PORT=2525
       - REMOTE_PORT=25
+      - LOCAL_PORT=2525
       - KEY=/data/keyfile
     restart: always
 ```

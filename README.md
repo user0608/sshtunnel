@@ -23,7 +23,7 @@ version: '2'
 services:
 
   sshtunnel:
-    image: acaranta/sshtunnel
+    image: ksaucedo/tunelssh
     container_name: sshtunnel
     ports:
       - "2525:2525"
@@ -55,7 +55,7 @@ version: '2'
 services:
 
   sshtunnel:
-    image: acaranta/sshtunnel
+    image: ksaucedo/tunelssh
     container_name: sshtunnel
     volumes:
       - ./sshtunnel/data/:/data/:ro

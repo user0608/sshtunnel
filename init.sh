@@ -1,12 +1,17 @@
-#!/bin/bash
+#!/bin/sh
+if [ -z "$AUTOSSH_PORT"]; then
+	export AUTOSSH_PORT=0
+fi
+if [ -f "$KEY" ];then
+	cp $KEY /ssh_key
+	chmod 400 /ssh_key	
+fi
 
 if [ -z "$TUNNEL_HOST" ]
 then
 	echo "the env var TUNNEL_HOST need to be set to the name/ip of the remote ssh host"
 	exit 1
 fi
-
-
 
 
 echo "Starting ssh tunnel"
@@ -31,7 +36,7 @@ if [ "$REMOTE" != "true" ]; then
 		-Nn $TUNNEL_HOST \
 		-p $TUNNEL_PORT \
 		-L *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT \
-		-i $KEY \
+		-i /ssh_key \
 		-F $SSHCONFIGFILE
 else
 	if [ -z "$REMOTE_PORT" ]
@@ -54,7 +59,7 @@ else
 		-Nn $TUNNEL_HOST \
 		-p $TUNNEL_PORT \
 		-R 0.0.0.0:$REMOTE_PORT:$CONTAINER_HOST:$CONTAINER_PORT \
-		-i $KEY 
+		-i /ssh_key 
 fi
 
 echo "Exiting ..."

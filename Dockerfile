@@ -1,6 +1,6 @@
-FROM ubuntu:focal
+FROM alpine:3.17.1
 
-RUN apt update ; apt install -y autossh ; apt clean ; rm -rf rm -rf /var/lib/apt/lists/* /var/cache/apt/* 
+RUN apk add --update autossh && rm -rf /var/cache/apk/*; 
 
 COPY init.sh /init.sh
 COPY ssh_config /sshtunnel/ssh_config
